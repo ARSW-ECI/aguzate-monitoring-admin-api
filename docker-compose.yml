@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+        mongo:
+                image: mongo
+                restart: always
+                env_file: ./.env
+                environment:                                                
+                        - MONGO_INITDB_DATABASE=$DB_NAME
+                ports:
+                        - $DB_PORT:$DB_PORT
+                volumes:
+                        - mongo-db:/data/db
+                        - mongo-configdb:/data/configdb            
+        
+volumes:
+        #Configure shared volumes to be used in the services above.
+        mongo-db:
+        mongo-configdb:

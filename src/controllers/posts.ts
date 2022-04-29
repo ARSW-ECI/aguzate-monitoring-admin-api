@@ -1,13 +1,9 @@
 /** source/controllers/posts.ts */
 import { Request, Response, NextFunction } from 'express';
 import axios, { AxiosResponse } from 'axios';
+import { Post } from '../models/post';
 
-interface Post {
-    userId: Number;
-    id: Number;
-    title: String;
-    body: String;
-}
+
 
 // getting all posts
 const getPosts = async (req: Request, res: Response, next: NextFunction) => {
