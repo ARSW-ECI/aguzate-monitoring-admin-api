@@ -1,7 +1,6 @@
 import { Document, Schema, Model, model } from 'mongoose';
 
-interface IBike {
-    bikeId: Schema.Types.ObjectId
+export interface IBike {
     color: String
     size: String    
 }
@@ -19,12 +18,6 @@ export const bikeSchema = new Schema({
         type: String,
         required: true,        
         maxlength: 255,        
-    },
-    bikeId: {
-        type: Schema.Types.ObjectId,
-        required: true,        
-        unique: true,
-        auto: true,
     },
 });
 

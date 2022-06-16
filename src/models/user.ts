@@ -1,10 +1,11 @@
 import { Document, Schema, Model, model } from 'mongoose';
-import { bikeSchema } from './bike';
+import {bikeSchema, IBike} from './bike';
 
 export interface IUser {
     firstName: String
     lastName: String
     email: String
+    bikes: Array<IBike>
 }
 
 export interface IUserModel extends IUser, Document {    

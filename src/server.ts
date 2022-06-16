@@ -24,7 +24,6 @@ router.use((req, res, next) => {
     next();
 });
 
-router.use('/', routes.postsRouter);
 router.use('/', routes.usersRouter);
 
 router.use((req, res, next) => {

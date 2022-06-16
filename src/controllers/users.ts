@@ -15,7 +15,17 @@ const deleteUser = async (req: Request, res: Response, next: NextFunction) => {
 
 const addUser = async (req: Request, res: Response, next: NextFunction) => {    
     let user = new UserModel(req.body)
-    user = await user.save()
+
+    if (user.bikes === undefined || user.bikes.length === 0) {
+        return res.status(400).json('Error: the user should have at least 1 bike');
+    }
+
+    try {
+        user = await user.save()
+    } catch (err) {
+        return res.status(400).json(err);
+    }
+
     return res.status(201).json(user);
 };
 

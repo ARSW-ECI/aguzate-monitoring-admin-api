@@ -3,6 +3,7 @@
 ## Execute
 
 ```
+docker-compose up
 yarn install
 yarn run dev
 ```

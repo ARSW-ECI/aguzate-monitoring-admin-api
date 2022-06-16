@@ -1,10 +1,15 @@
-
 import { connect } from 'mongoose';
 import winston from 'winston';
-
+require('dotenv').config();
 
 export function connectDB() {
-    const db: string = 'mongodb://localhost:27017/aguzate-monitoring';
+    console.log(process.env.DB_URL);
+    const db: string | undefined = process.env.DB_URL;
+
+    if(!db) {
+        throw new Error('DB URL BAD CONFIGURED')
+    }
+
     connect(db)
         .then(() => {
             winston.info(`Connected to database...`);
