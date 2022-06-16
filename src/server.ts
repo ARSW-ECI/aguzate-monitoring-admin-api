@@ -1,6 +1,7 @@
 /** source/server.ts */
 import http from 'http';
 import express, { Express } from 'express';
+import morgan from 'morgan';
 import routes from './routes';
 import { connectDB } from './utils/db';
 
@@ -8,6 +9,7 @@ connectDB()
 
 const router: Express = express();
 
+router.use(morgan('dev'));
 router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
