@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/server.ts",
-    "start": "yarn install && rm -rf build/ && tsc && node build/server.js"
+    "build": "rm -rf build/ && tsc",
+    "start": "npm run build && node build/server.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
