@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "engines": { "node": "16.14.2" },
   "scripts": {
     "dev": "nodemon src/server.ts",
     "build": "rm -rf build/ && tsc",
-    "start": "npm run build && node build/server.js"
+    "postinstall": "rm -rf build/ && tsc",
+    "start": "node build/server.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
