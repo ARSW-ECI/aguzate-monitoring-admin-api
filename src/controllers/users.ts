@@ -3,7 +3,6 @@ import { Request, Response, NextFunction } from 'express';
 import { UserModel } from '../models/user';
 
 const listUsers = async (req: Request, res: Response, next: NextFunction) => {
-    throw new Error('my error');
     console.log('REQUEST', req);
     const users = await UserModel.find();
     console.log('USERS', users);
